@@ -4,14 +4,25 @@ namespace MarsRover
 {
     class Program
     {
+        #region Properties
+
         static InputModel inputModel { get; set; }
-        static int roverCount = 2; // value should be taken from a config file.
+        
+        /// <summary>
+        /// Defines the count of the rovers. To run the program for more rovers, just change this parameter.
+        /// </summary>
+        static int roverCount = 2; // this value should be taken from a config file. 
+
+        #endregion
 
         static void Main(string[] args)
         {
             Welcome();
             GetInputs();
+            MoveRoversAndWriteLastPositions();
 
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
         }
 
         /// <summary>
@@ -35,10 +46,24 @@ namespace MarsRover
         }
 
         /// <summary>
+        /// Moves the rovers and writes the last positions to console.
+        /// </summary>
+        static void MoveRoversAndWriteLastPositions()
+        {
+            Console.WriteLine("The last positions of the rovers are:");
+
+            foreach (var rover in inputModel.Rovers)
+            {
+                Console.WriteLine(rover.Move());
+            }
+        }
+
+        /// <summary>
         /// Welcome message.
         /// </summary>
         static void Welcome()
         {
+            Console.ForegroundColor = ConsoleColor.Green;
             string welcomeMsg = "Hello from Mars Rover!";
 
             foreach (var c in welcomeMsg)
@@ -46,8 +71,7 @@ namespace MarsRover
                 Console.Write(c);
                 System.Threading.Thread.Sleep(30);
             }
-
-            Console.WriteLine();
+            Console.WriteLine(); Console.WriteLine();
         }
     }
 }

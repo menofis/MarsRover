@@ -2,6 +2,9 @@
 
 namespace MarsRover
 {
+    /// <summary>
+    /// Includes all inputs taken from the user.
+    /// </summary>
     public class InputModel
     {
         public string PlateauEndCoordinates { get; set; }
