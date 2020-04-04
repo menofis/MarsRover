@@ -1,5 +1,5 @@
 # MarsRover
-Solution of the "Mars Rover" question for C# with .net Core 3.1.
+A solution of the "Mars Rover" question for C# as a .net Core 3.1 project.
 
 Question:
 
